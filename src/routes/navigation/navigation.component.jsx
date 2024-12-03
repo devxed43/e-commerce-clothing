@@ -1,16 +1,24 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Outlet, Link } from "react-router-dom";
+// import svg logo as component
+import { ReactComponent as Logo } from "../../assets/e-shop.svg";
+import "./navigation.styles.scss";
 
 const Navigation = () => {
   return (
-    <div>
-      <div>Navigation Bar</div>
-      {/* 
-          this is our navigation top level component
-          outlet renders everything that is a child of navigation
-        */}
+    <Fragment>
+      <div className="navigation">
+        <Link className="logo-container" to="/">
+          <Logo className="logo" />
+        </Link>
+        <div className="nav-links-container">
+          <Link className="nav-link" to="/shop">
+            Shop
+          </Link>
+        </div>
+      </div>
       <Outlet />
-    </div>
+    </Fragment>
   );
 };
 
